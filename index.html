@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>
+Mum - adding useful back into your life
+</title>
+  <!--external resourses-->
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.js'></script>
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script type='text/javascript' src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script type='text/javascript' src="http://jqueryui.com/resources/demos/external/globalize.js"></script>
+  <script type='text/javascript' src="http://jqueryui.com/resources/demos/external/jquery.mousewheel.js"></script>
+  
+  <!--bootstrap-->
+  <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+  
+  <!--my resourses-->
+  <script type='text/javascript' src='script.js'></script>
+  <link rel="stylesheet" type="text/css" href="simple.css">
+    
+</head>
+<body>
+<div id="natural" class='friendly'>
+    <p>Ask mum for something</p>
+    <p>Fill in the blanks below and when you are happy with the request, press <em>submit</em>.</p>
+    <p>Byee!</p>
+    <p><small>Tip: try to make the sentence read as naturally as possible.</small></p>
+</div>
+
+<div id="dsl" class="generated">pro user code</div>
+
+<div id="inputs">
+    <form>
+        <div id="who">
+            <input name='Who' placeholder="Me" id="whoInput"></input>
+            <label for='Who'>Who</label>
+        </div>
+        <div id="when">
+            <!--I'm not at all happy with this table, ecentually this will need to be css so that it can change as screen size changes-->
+            <table>
+                <tr>
+                    <td rowspan="2">
+                        <input type="text" id="datepicker" placeholder="Set a date" />
+                        <label for="spinner">at</label>
+                        <input id="timespinner" class='timeSpinner' name="timespinner" value="08:30 PM" />
+                    </td>
+                    <td>+</td>
+                    <td>
+                        <input id="pveSpinner" name="spinner" value="30" class="timeOffsetSpinner" />
+                    </td>
+                    <td>minutes</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>
+                        <input id="nveSpinner" name="spinner" value="30" class="timeOffsetSpinner" />
+                    </td>
+                    <td>minutes</td>
+                </tr>
+            </table>
+        </div>
+        <div id="why">
+            <input name='Why' placeholder="Checkup" id="whyInput"></input>
+            <label for='Why'>Why</label>
+        </div>
+        <div id="where">
+            <input name='Where' placeholder="My dentist" id="whereInput"></input>
+            <label for='Where'>Where</label>
+        </div>
+        <div id='extras'>
+            <textarea id='special' cols=50 rows=6 placeholder="any special requests?"></textarea>
+        </div>
+    </form>
+</div>
+</body>
+</html>
