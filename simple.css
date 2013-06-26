@@ -3,6 +3,10 @@
 input {
     display:inline-block;
 }
+label {
+    display:inline-block;
+}
+textarea{width:100%;}
 table {
     display:inline-block;
 }
@@ -24,5 +28,6 @@ table {
     font-family:Courier;
     background-color:#76DAFF;
     border:1px dashed #000000;
-    padding-left:1em;
+    padding:1em;
 }
+.potrtait{float:right;}

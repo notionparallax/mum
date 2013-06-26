@@ -5,6 +5,7 @@
 <title>
 Mum - adding useful back into your life
 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--external resourses-->
   <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.js'></script>
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
@@ -13,8 +14,8 @@ Mum - adding useful back into your life
   <script type='text/javascript' src="http://jqueryui.com/resources/demos/external/jquery.mousewheel.js"></script>
   
   <!--bootstrap-->
-  <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-  <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+  <link type="text/css" rel="stylesheet" href="http://notionparallax.co.uk/mum/bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="http://notionparallax.co.uk/mum/bootstrap/js/bootstrap.js"></script>
   
   <!--my resourses-->
   <script type='text/javascript' src='script.js'></script>
@@ -22,11 +23,14 @@ Mum - adding useful back into your life
     
 </head>
 <body>
+<div class="row-fluid">
+  <div class="span10 offset2">
 <div id="natural" class='friendly'>
+    <img src="http://www.mamamia.com.au/wp-content/uploads/2013/01/stay-at-home-mum-380x571.jpg" class="img-circle" style='float:right;'>
     <p>Ask mum for something</p>
     <p>Fill in the blanks below and when you are happy with the request, press <em>submit</em>.</p>
     <p>Byee!</p>
-    <p><small>Tip: try to make the sentence read as naturally as possible.</small></p>
+    <p class="text-info"><small>Tip: try to make the sentence read as naturally as possible.</small></p>
 </div>
 
 <div id="dsl" class="generated">pro user code</div>
@@ -34,7 +38,7 @@ Mum - adding useful back into your life
 <div id="inputs">
     <form>
         <div id="who">
-            <input name='Who' placeholder="Me" id="whoInput"></input>
+            <input type="text" name='Who' placeholder="Me" id="whoInput"></input>
             <label for='Who'>Who</label>
         </div>
         <div id="when">
@@ -44,35 +48,36 @@ Mum - adding useful back into your life
                     <td rowspan="2">
                         <input type="text" id="datepicker" placeholder="Set a date" />
                         <label for="spinner">at</label>
-                        <input id="timespinner" class='timeSpinner' name="timespinner" value="08:30 PM" />
+                        <input type="text" id="timespinner" class='timeSpinner' name="timespinner" value="08:30 PM" />
                     </td>
                     <td>+</td>
                     <td>
-                        <input id="pveSpinner" name="spinner" value="30" class="timeOffsetSpinner" />
+                        <input type="text" id="pveSpinner" name="spinner" value="30" class="timeOffsetSpinner" />
                     </td>
                     <td>minutes</td>
                 </tr>
                 <tr>
                     <td>-</td>
                     <td>
-                        <input id="nveSpinner" name="spinner" value="30" class="timeOffsetSpinner" />
+                        <input type="text" id="nveSpinner" name="spinner" value="30" class="timeOffsetSpinner" />
                     </td>
                     <td>minutes</td>
                 </tr>
             </table>
         </div>
         <div id="why">
-            <input name='Why' placeholder="Checkup" id="whyInput"></input>
+            <input type="text" name='Why' placeholder="Checkup" id="whyInput"></input>
             <label for='Why'>Why</label>
         </div>
         <div id="where">
-            <input name='Where' placeholder="My dentist" id="whereInput"></input>
+            <input type="text" name='Where' placeholder="My dentist" id="whereInput"></input>
             <label for='Where'>Where</label>
         </div>
         <div id='extras'>
-            <textarea id='special' cols=50 rows=6 placeholder="any special requests?"></textarea>
+            <textarea id='special' rows=6 placeholder="any special requests?"></textarea>
         </div>
+        <button type="button" class="btn btn-large btn-primary">send to mum</button>(not wired in yet)
     </form>
-</div>
+</div></div></div>
 </body>
 </html>
