@@ -21,10 +21,18 @@ $(document).ready(function () {
     };
 
     var naturalContent = function () {
-        $('#natural').html(salutation + ' ' + who + ' ' +
+        var naturalText = salutation + ' ' + 
+            who + ' ' +
             'at ' + where + ' ' +
-            'on ' + date + ' at ' + time + ' ' +
-            'for ' + why + '.<br>' + structureTimeTol('natural') + special + closing);
+            'on ' + date + ' at ' + 
+            time + ' ' +
+            'for ' + why + '.<br>' + 
+            structureTimeTol('natural') + 
+            special + 
+            closing;
+            
+        $('#natural').html(naturalText);
+        $('#modalCheckBody').html(naturalText);
     };
 
     var updateTxt = function () {
@@ -74,11 +82,18 @@ $(document).ready(function () {
     $.widget("ui.timespinner", $.ui.spinner, {
         options: {
             // seconds
-            step: 60 * 1000,
+            step: 60 * 1000 * 5, //5 minute increments
             // hours
-            page: 60
+            page: 60,
+            spin: function () { 
+                  time = $(this).val();                  
+                  updateTxt();
+               },
+               change: function () { //change, in case someone changes it using their keyboard
+                  time = $(this).val();                  
+                  updateTxt();
+               }
         },
-
         _parse: function (value) {
             if (typeof value === "string") {
                 // already a timestamp
@@ -89,19 +104,11 @@ $(document).ready(function () {
             }
             return value;
         },
-
         _format: function (value) {
             return Globalize.format(new Date(value), "t");
         }
     });
-
-
-    $("#timespinner").timespinner();
-    $("#timespinner").change(function () { //TODO not working :(
-        time = $(this).val();
-        console.log(time);
-        updateTxt();
-    });
+    $("#timespinner").timespinner();    
 
     $(function () {
         $("#datepicker").datepicker({
