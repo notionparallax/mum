@@ -43,7 +43,7 @@ $(document).ready(function () {
     var structureTimeTol = function (context) {
         if (timeTolSet) {
             if (context === 'natural') {
-                if (timeTolPve == timeTolNve) {
+                if (timeTolPve === timeTolNve) {
                     return "I'm flexible, the appointment can be " + timeTolPve + '&thinsp;minutes either way.<br>';
                 } else {
                     return "I'm flexible, the appointment can be " + timeTolPve + '&thinsp;minutes after then or ' + timeTolNve + '&thinsp;minutes before.<br>';
@@ -55,9 +55,27 @@ $(document).ready(function () {
             return '';
         }
     };
+    
+var submitForm = function (emailString) {
+    var param = { "requestBody": emailString };
+	console.log('in the email function', emailString);
+    $.post("/mum/email.php", 
+			param,
+			function(data){
+				console.log('in the response');
+				console.log(data.body);
+			},
+			"json");
+};
 
     //--------------------here we go--------------------
-    //updateTxt();
+    $('#sendToMum').click(function(){
+		console.log('submit button pressed');
+		submitForm($('#modalCheckBody').html());
+		//should have some kind of async confirmation thing here really
+		$('#modalCheckBody').html("<p>Thanks for making a request!<br>"+
+									"Once Irina has done some design work on this site it'll be really cool.</p>");
+		});
 
     $('#whoInput').keyup(function () {
         who = $(this).val();
@@ -97,7 +115,7 @@ $(document).ready(function () {
         _parse: function (value) {
             if (typeof value === "string") {
                 // already a timestamp
-                if (Number(value) == value) {
+                if (Number(value) === value) {
                     return Number(value);
                 }
                 return +Globalize.parseDate(value);
